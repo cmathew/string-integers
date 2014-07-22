@@ -1,8 +1,21 @@
 #!/usr/bin/env ruby
 class Calculator
+	def valid_number?(number)
+		number >= 0
+	end
+	
 	def add(numbers)
 		total = 0
-		numbers.each {|s| total += s.strip.to_i}
+		invalid_numbers = []
+		numbers.each do |num|
+			num = num.strip.to_i		
+			if !self.valid_number?(num) then
+				invalid_numbers << num 
+			else 
+				total += num
+			end
+		end
+		raise "Negatives not allowed #{invalid_numbers}" if invalid_numbers.any?
 		puts "Total is #{total}"	
 	end
 	
