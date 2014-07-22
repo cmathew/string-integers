@@ -2,7 +2,7 @@
 class Calculator
 	def add(num_string)
 		total = 0
-		num_string.split(',').each {|s| total += s.strip.to_i}
+		num_string.split(/[\n,]+/).each {|s| total += s.strip.to_i}
 		puts "Total is #{total}"	
 	end
 end  
