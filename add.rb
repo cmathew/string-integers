@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 class Calculator
 	def add(num_string)
-		num_string.split(',').each {|s| puts s.strip.to_i}
+		total = 0
+		num_string.split(',').each {|s| total += s.strip.to_i}
+		puts "Total is #{total}"
 	end
 end  
 
